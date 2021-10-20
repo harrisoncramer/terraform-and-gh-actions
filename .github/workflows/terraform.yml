@@ -22,7 +22,7 @@ jobs:
         id: validate
         run: terraform validate -no-color
       - name: Terraform Plan
-        id: terraform plan
+        id: plan
         if: github.event_name === 'pull_request' # Only run on PRs.
         run: terraform plan -no-color
         continue-on-error: true # Display error even on fail
