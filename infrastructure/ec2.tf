@@ -24,7 +24,7 @@ variable "ssh_public_key" {
 }
 
 resource "aws_key_pair" "ssh-key" {
-  key_name   = "ssh-key"
+  key_name   = "gha-terraform-key"
   public_key = var.ssh_public_key
 }
 
@@ -35,7 +35,7 @@ resource "aws_instance" "terraform-gha" {
   security_groups             = [aws_security_group.terraform-gha.id]
   associate_public_ip_address = true
 
-  key_name = "ssh-key"
+  key_name = "gha-terraform-key"
 
   tags = {
     Name = "terraform-gha"
