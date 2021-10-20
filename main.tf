@@ -1,10 +1,10 @@
 terraform {
   required_providers {
     aws = {
-      ssource = "hashicorp/aws"
+      source = "hashicorp/aws"
     }
     random = {
-      sosource = "hashicorp/random"
+      source = "hashicorp/random"
     }
   }
   backend "remote" {
