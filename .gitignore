@@ -1,0 +1,19 @@
+#################
+### Terraform ###
+#################
+
+# Local Terraform Directories
+infrastructure/.terraform
+
+# Using TFC, don't need locally
+.terraform.lock.hcl
+
+# State files
+*.tfstate
+*.tfstate.*
+
+# Crash log files
+*.log
+
+# Sensitive data
+*.tfvars

@@ -17,14 +17,14 @@ jobs:
           cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }} # Authenticates to TF Cloud
       - name: Terraform Init
         id: init
-        run: terraform init
+        run: terraform -chdir=./infrastructure init
       - name: Terraform Validate
         id: validate
-        run: terraform validate -no-color
+        run: terraform -chdir=./infrastructure validate -no-color
       - name: Terraform Plan
         id: plan
         if: github.event_name == 'pull_request' # Only run on PRs.
-        run: terraform plan -no-color
+        run: terraform -chdir=./infrastructure plan -no-color
         continue-on-error: true # Display error even on fail
       - name: Update Pull Request With TF Results
         uses: actions/github-script@0.9.0
@@ -60,4 +60,4 @@ jobs:
         run: exit 1
       - name: Terraform Apply
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-        run: terraform apply -auto-approve
+        run: terraform -chdir=./infrastructure apply -auto-approve
