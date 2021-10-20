@@ -32,7 +32,7 @@ resource "aws_instance" "terraform-gha" {
   ami                         = var.instance_ami
   instance_type               = var.instance_type
   availability_zone           = var.availability_zone
-  security_groups             = [aws_security_group.terraform-gha.id]
+  vpc_security_group_ids      = [aws_security_group.terraform-gha.id]
   associate_public_ip_address = true
 
   key_name = "gha-terraform-key"
