@@ -18,12 +18,12 @@ variable "instance_type" {
 
 # Should be configured by the deployer to match key at ~/.ssh/your_public_key
 variable "ssh_public_key" {
-  description = "Public SSH key for logging into EC2 instance"
+  description = "Public SSH key for logging into EC2 instances."
   type        = string
-  default     = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDQy/pHHnlxKiTFRH/FAbAgtLA2GBS45bTNxrrSP+tqtF0TSe1j/NSKD3+C7GPmVNTOU2SDL3UIu71EfNcDtjRZ9O7AhJvNczOHRQ/gK7Pi88tkVjs5jHImJK3Fx/GgJ1jXCSfR5eD9CAhGBeYS21aq9SCOPDEzY3Pie0pP/KODnCILcdlbX9vVHf/LXXzY41dWEfobuAOjiJ03YjPhPCNCpl2axO0kLPOvkXTkiA8vrn2CpHW/0sy+a2WwaHEJrJ2QARdhrTIi6w8dQWK8AE5xp/vuiTTHCInY04e19m9CZwRi/TbUsyttVaw4DgG9mozxvu7CeC0FLJWE1JGHLBn/ harrisoncramer@myPc.local"
+  default     = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCbWHJViNcyvE/RgspZgk0Ns37Wrx9zk25/t4o77e0irglTt9PJqKFSXx0c/hkPvOzgGEjXXIRYzIQgTL9SNBzn4dDE9SGjwQ3DL269BclKvzAmYErNIZaCUI37WzuVF9I/LHS5uVHV/JcIhBq6n0o+PfrkitZEyDO1FW7IQ4ivFcShRNwLT6XlTGz90DU2kg5BMTVbc3swjeC6FKx8VCQuXAVNVNgOqzLGNhjyWj5mNYW5JzHqg8fPEUxKfbGh266F8CkQsjCSQDeCSwkulSwbfhqoctkrtgzvfhKTxnJ7Nl2Fnr3LrIs+i3BlpYCHWAndSPPEh1D4WVXlxQcOOl37yzD93Z1dsODMm+7jEPSIu9dc9VCcrEtgXJDitwY8YsPZ080LmBxPFlASTSZA7pjHvjRk8THL6fW/S4NRozU0pZeDKtsJE8FLDX5xXphBsZ5JguCLvDOxJe+1Tj4TUz9IdSGILPyBUew5VlPFb0PY+Ix1JnEImqPyxFHa7RKYrVs= harrisoncramer@myPc.fios-router.home"
 }
 
-resource "aws_key_pair" "ssh-key" {
+resource "aws_key_pair" "gha-terraform-key" {
   key_name   = "gha-terraform-key"
   public_key = var.ssh_public_key
 }
